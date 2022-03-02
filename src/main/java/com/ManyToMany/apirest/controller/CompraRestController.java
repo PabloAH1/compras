@@ -39,6 +39,7 @@ public class CompraRestController {
 		try {
 			compra = servicio.findById(id);
 		} catch (DataAccessException e) {
+			// TODO: handle exception
 			response.put("mensaje", "Error al realizar la consulta.");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -59,6 +60,7 @@ public class CompraRestController {
 		try {
 			compraNew = servicio.save(compra);
 		} catch (DataAccessException e) {
+			// TODO: handle exception
 			response.put("mensaje", "Error al realizar la consulta.");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -86,6 +88,7 @@ public class CompraRestController {
 			servicio.save(compraActual);
 
 		} catch (DataAccessException e) {
+			// TODO: handle exception
 			response.put("mensaje", "Error al realizar la consulta.");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
