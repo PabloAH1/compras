@@ -76,12 +76,11 @@ public class CompraRestController {
 		Map<String, Object> response = new HashMap<>();
 
 		if (compraActual == null) {
-			response.put("mensaje", "El cliente ID: " + id.toString() + " no existe en la base de datos.");
+			response.put("mensaje", "La compra ID: " + id.toString() + " no existe en la base de datos.");
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		}
 
 		try {
-			compraActual.setId(compra.getId());
 			compraActual.setFecha(compra.getFecha());
 			compraActual.setUnidades(compra.getUnidades());
 			compraActual.setCliente(compra.getCliente());
