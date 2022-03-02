@@ -1,5 +1,7 @@
 package com.ManyToMany.apirest.controller;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,16 +17,38 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name = "compras")
 public class Compra {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "CodCliente")
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Cliente cliente;
-	
-	@OneToMany
+
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CodArticulo")
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	private Articulo articulo;
+
+	private Date fecha;
+	private int unidades;
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public int getUnidades() {
+		return unidades;
+	}
+
+	public void setUnidades(int unidades) {
+		this.unidades = unidades;
+	}
 
 }
