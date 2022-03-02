@@ -1,6 +1,5 @@
 package com.ManyToMany.apirest.controller;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -10,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 //import javax.persistence.JoinColumn;
+//import javax.persistence.JoinTable;
+//import javax.persistence.JoinColumn;
 //import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -17,9 +18,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "clientes")
-public class Cliente implements Serializable{
-
-	private static final long serialVersionUID = 1L;
+public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,7 +49,16 @@ public class Cliente implements Serializable{
 	 * @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" }) private
 	 * Articulo articulo;
 	 */
-
+	
+	/*@JoinTable(
+			name = "compras",
+			joinColumns = @JoinColumn(name = "CodCliente", nullable = false),
+			inverseJoinColumns = @JoinColumn(name = "CodArticulo", nullable = false)
+			)
+	
+	@ManyToMany(cascade = CascadeType.ALL)*/
+	
+	
 	public Long getCodCliente() {
 		return CodCliente;
 	}
