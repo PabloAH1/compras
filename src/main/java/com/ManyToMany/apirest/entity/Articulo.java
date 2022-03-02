@@ -1,4 +1,4 @@
-package com.ManyToMany.apirest.controller;
+package com.ManyToMany.apirest.entity;
 
 import java.io.Serializable;
 
