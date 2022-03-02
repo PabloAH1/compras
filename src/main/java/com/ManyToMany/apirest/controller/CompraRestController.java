@@ -21,7 +21,7 @@ import com.ManyToMany.apirest.services.CompraService;
 
 @RestController
 @RequestMapping("/api")
-public class CompraController {
+public class CompraRestController {
 
 	@Autowired
 	private CompraService servicio;
